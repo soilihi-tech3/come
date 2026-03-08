@@ -795,8 +795,6 @@
 
         <div class="err full" id="err-nom">⚠ Nom et prénom obligatoire.</div>
         <div class="err full" id="err-wa" style="margin-top:-.5rem">⚠ Numéro WhatsApp obligatoire.</div>
-        <div class="err full" id="err-wa-exists" style="margin-top:-.5rem">⚠ Vous êtes déjà inscrit(e) avec ce numéro.
-        </div>
 
         <!-- Contact (optionnel) -->
         <div class="field-wrap">
@@ -907,13 +905,33 @@
       </div>
       <h2>Inscription reçue !</h2>
       <div class="gold-line" style="margin:1rem auto"></div>
-      <p>Merci <strong id="sname" style="color:var(--gold-light)"></strong>.<br>Notre équipe vous contactera très
-        prochainement sur WhatsApp.</p>
+      <p>Merci <strong id="sname" style="color:var(--gold-light)"></strong>, votre inscription a bien été enregistrée.
+      </p>
+      <p style="margin-top:.8rem;color:var(--muted);font-size:.85rem">Cliquez ci-dessous pour nous contacter directement
+        sur WhatsApp :</p>
+      <a id="wa-link" href="#" target="_blank" style="
+        display:inline-flex;align-items:center;gap:.6rem;
+        margin-top:1.2rem;padding:.8rem 1.6rem;
+        background:linear-gradient(135deg,#25D366,#128C7E);
+        border-radius:30px;color:#fff;font-family:'Jost',sans-serif;
+        font-size:.92rem;font-weight:500;letter-spacing:.04em;
+        text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.3);
+        transition:transform .2s,box-shadow .2s;
+      " onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(37,211,102,.45)'"
+        onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(37,211,102,.3)'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+          <path
+            d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.84L.057 23.882l6.204-1.626A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.502-5.2-1.378l-.373-.221-3.863 1.013 1.033-3.772-.243-.389A9.962 9.962 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+        </svg>
+        Contacter sur WhatsApp
+      </a>
     </div>
-
     <footer>© 2026 ComFormation &nbsp;·&nbsp; km.comformation@gmail.com</footer>
   </div>
 
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
     /* ════ CANVAS BG ════ */
     (function () {
@@ -962,23 +980,21 @@
       init(); loop();
     })();
 
-    /* ════ LOGO REMOVED ════ */
+
 
     /* ════ RADIO TILES — choix unique ════ */
     document.querySelectorAll('#formation-group .tile').forEach(t => {
-      t.addEventListener('click', () => {
-        document.querySelectorAll('#formation-group .tile').forEach(x => x.classList.remove('active'));
-        t.classList.add('active');
-      });
+      t.addEventListener('click', () => { t.classList.toggle('active'); });
     });
 
     /* ════ PILLS — choix unique ════ */
-    ['heure-group', 'ordi-group'].forEach(id => {
-      document.querySelectorAll('#' + id + ' .pill').forEach(p => {
-        p.addEventListener('click', () => {
-          document.querySelectorAll('#' + id + ' .pill').forEach(x => x.classList.remove('active'));
-          p.classList.add('active');
-        });
+    document.querySelectorAll('#heure-group .pill').forEach(p => {
+      p.addEventListener('click', () => { p.classList.toggle('active'); });
+    });
+    document.querySelectorAll('#ordi-group .pill').forEach(p => {
+      p.addEventListener('click', () => {
+        document.querySelectorAll('#ordi-group .pill').forEach(x => x.classList.remove('active'));
+        p.classList.add('active');
       });
     });
 
@@ -997,20 +1013,7 @@
       const ordi = document.querySelector('#ordi-group .pill.active');
 
       setErr('err-nom', !nom); if (!nom) ok = false;
-
-      setErr('err-wa', false);
-      setErr('err-wa-exists', false);
-      if (!wa) {
-        setErr('err-wa', true);
-        ok = false;
-      } else {
-        const saved = JSON.parse(localStorage.getItem('registered_wa') || '[]');
-        if (saved.includes(wa)) {
-          setErr('err-wa-exists', true);
-          ok = false;
-        }
-      }
-
+      setErr('err-wa', !wa); if (!wa) ok = false;
       setErr('err-prof', !prof); if (!prof) ok = false;
       setErr('err-formation', !form); if (!form) ok = false;
       setErr('err-heure', !heure); if (!heure) ok = false;
@@ -1037,8 +1040,8 @@
         whatsapp: document.getElementById('whatsapp').value.trim(),
         contact: document.getElementById('contact').value.trim(),
         profession: document.getElementById('profession').value,
-        formation: document.querySelector('#formation-group .tile.active')?.dataset.val || '',
-        heure: document.querySelector('#heure-group .pill.active')?.dataset.val || '',
+        formation: [...document.querySelectorAll('#formation-group .tile.active')].map(t => t.dataset.val).join(' | '),
+        heure: [...document.querySelectorAll('#heure-group .pill.active')].map(p => p.dataset.val).join(' | '),
         ordinateur: document.querySelector('#ordi-group .pill.active')?.dataset.val || '',
         commentaire: document.getElementById('commentaire').value.trim()
       };
@@ -1046,18 +1049,14 @@
       try {
         await fetch(SHEET_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
       } catch (e) { }
-
-      const saved = JSON.parse(localStorage.getItem('registered_wa') || '[]');
-      if (!saved.includes(payload.whatsapp)) {
-        saved.push(payload.whatsapp);
-        localStorage.setItem('registered_wa', JSON.stringify(saved));
-      }
-
       document.getElementById('main-form').style.display = 'none';
+      const nom = payload.nom.split(' ')[0];
+      document.getElementById('sname').textContent = nom;
+      const msg = encodeURIComponent('Bonjour, je suis ' + payload.nom + ', je viens de m\'inscrire sur votre formation : ' + payload.formation + '.');
+      document.getElementById('wa-link').href = 'https://wa.me/2694096958?text=' + msg;
       const s = document.getElementById('success-screen');
-      s.style.display = 'block';
-      requestAnimationFrame(() => s.classList.add('show'));
-      document.getElementById('sname').textContent = payload.nom;
+      s.classList.add('show');
+      s.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   </script>
 </body>
