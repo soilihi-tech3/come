@@ -19,7 +19,6 @@
       --text: #F0EAD6;
       --muted: rgba(240, 234, 214, 0.48);
       --error: #FF6B6B;
-      --purple: #6B21A8;
     }
 
     *,
@@ -42,7 +41,6 @@
       color: var(--text);
     }
 
-    /* ── CANVAS ── */
     #bg {
       position: fixed;
       inset: 0;
@@ -51,7 +49,6 @@
       height: 100%;
     }
 
-    /* ── PAGE ── */
     .page {
       position: relative;
       z-index: 1;
@@ -62,7 +59,6 @@
       padding: 2rem 1rem 3rem;
     }
 
-    /* ── HEADER ── */
     .top-bar {
       width: 100%;
       max-width: 900px;
@@ -100,28 +96,6 @@
       border-radius: 50%;
     }
 
-    .upload-hint {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      color: var(--gold);
-      font-size: .6rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    .upload-hint svg {
-      width: 20px;
-      height: 20px;
-      opacity: .8;
-    }
-
-    #logo-input {
-      display: none;
-    }
-
     .brand-title {
       text-align: center;
     }
@@ -152,7 +126,6 @@
       text-transform: uppercase;
     }
 
-    /* ── GLASS CARD ── */
     .glass-card {
       width: 100%;
       max-width: 900px;
@@ -166,7 +139,6 @@
       animation: fadeUp .9s .15s cubic-bezier(.22, 1, .36, 1) both;
     }
 
-    /* ── TWO-COL GRID ── */
     .form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -177,7 +149,6 @@
       grid-column: 1/-1;
     }
 
-    /* ── SECTION DIVIDER ── */
     .sec {
       display: flex;
       align-items: center;
@@ -202,7 +173,6 @@
       white-space: nowrap;
     }
 
-    /* ── FLOATING LABEL ── */
     .field-wrap {
       position: relative;
       margin-bottom: 1.5rem;
@@ -225,10 +195,10 @@
       width: 100%;
       background: transparent;
       border: none;
-      border-bottom: 1px solid rgba(255, 255, 255, .14);
-      padding: 1rem 0 .35rem;
+      border-bottom: 2px solid rgba(255, 255, 255, .22);
+      padding: 1.1rem 0 .5rem;
       font-family: 'Jost', sans-serif;
-      font-size: .92rem;
+      font-size: 1rem;
       color: var(--text);
       outline: none;
       transition: border-color .3s;
@@ -239,7 +209,6 @@
     .field-wrap textarea {
       padding-top: 1.4rem;
       min-height: 80px;
-      border-bottom-width: 1px;
     }
 
     .field-wrap input:focus,
@@ -280,7 +249,6 @@
       margin-left: 2px;
     }
 
-    /* ── SELECT ── */
     .sel-wrap {
       position: relative;
       margin-bottom: 1.5rem;
@@ -335,91 +303,7 @@
       color: var(--text);
     }
 
-    /* ── RADIO TILES (single choice) ── */
-    .radio-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .radio-lbl {
-      font-size: .6rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: .5rem;
-      font-weight: 600;
-      display: block;
-    }
-
-    .tiles {
-      display: flex;
-      flex-direction: column;
-      gap: .5rem;
-    }
-
-    .tile {
-      display: flex;
-      align-items: center;
-      gap: .85rem;
-      padding: .7rem 1rem;
-      border: 1px solid rgba(255, 255, 255, .09);
-      border-radius: 10px;
-      cursor: pointer;
-      user-select: none;
-      background: rgba(255, 255, 255, .02);
-      transition: border-color .2s, background .2s, transform .12s;
-    }
-
-    .tile:hover {
-      border-color: rgba(201, 168, 76, .4);
-      background: rgba(201, 168, 76, .04);
-      transform: translateX(2px);
-    }
-
-    .tile.active {
-      border-color: var(--gold);
-      background: rgba(201, 168, 76, .1);
-    }
-
-    .tile-dot {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      border: 1.5px solid rgba(255, 255, 255, .22);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all .2s;
-      background: transparent;
-    }
-
-    .tile.active .tile-dot {
-      background: var(--gold);
-      border-color: var(--gold);
-      box-shadow: 0 0 8px rgba(201, 168, 76, .5);
-    }
-
-    .tile-dot-inner {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #0D0B14;
-      display: none;
-    }
-
-    .tile.active .tile-dot-inner {
-      display: block;
-    }
-
-    .tile-text {
-      font-size: .83rem;
-      color: var(--text);
-      font-weight: 300;
-      letter-spacing: .02em;
-      line-height: 1.3;
-    }
-
-    /* ── PILLS (2-option radio) ── */
+    /* ── PILLS ── */
     .pills-group {
       margin-bottom: 1.5rem;
     }
@@ -429,14 +313,14 @@
       letter-spacing: .14em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: .5rem;
+      margin-bottom: .6rem;
       font-weight: 600;
       display: block;
     }
 
     .pills {
       display: flex;
-      gap: .6rem;
+      gap: .7rem;
     }
 
     .pill {
@@ -445,46 +329,49 @@
       align-items: center;
       justify-content: center;
       gap: .5rem;
-      padding: .65rem .8rem;
-      border: 1px solid rgba(255, 255, 255, .1);
+      padding: .8rem 1rem;
+      border: 2px solid rgba(255, 255, 255, .18);
       border-radius: 30px;
       cursor: pointer;
-      font-size: .82rem;
-      font-weight: 400;
+      font-size: .85rem;
+      font-weight: 500;
       letter-spacing: .04em;
-      transition: all .2s;
+      transition: all .25s ease;
       user-select: none;
-      background: rgba(255, 255, 255, .02);
+      background: rgba(255, 255, 255, .03);
+      color: var(--text);
     }
 
     .pill:hover {
-      border-color: rgba(201, 168, 76, .45);
-      background: rgba(201, 168, 76, .05);
+      border-color: rgba(201, 168, 76, .5);
+      background: rgba(201, 168, 76, .06);
+      transform: translateY(-1px);
     }
 
     .pill.active {
-      border-color: var(--gold);
-      background: rgba(201, 168, 76, .13);
-      color: var(--gold-light);
-      box-shadow: 0 0 14px rgba(201, 168, 76, .12);
+      border-color: #C9A84C;
+      background: linear-gradient(135deg, #C9A84C 0%, #E8D08A 100%);
+      color: #0D0B14;
+      font-weight: 700;
+      box-shadow: 0 4px 24px rgba(201, 168, 76, .55);
+      transform: translateY(-2px);
     }
 
     .pdot {
-      width: 7px;
-      height: 7px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      border: 1.5px solid rgba(255, 255, 255, .28);
-      transition: all .2s;
+      border: 2px solid rgba(255, 255, 255, .4);
+      transition: all .25s;
       flex-shrink: 0;
     }
 
     .pill.active .pdot {
-      background: var(--gold);
-      border-color: var(--gold);
-      box-shadow: 0 0 6px var(--gold);
+      background: #0D0B14;
+      border-color: #0D0B14;
     }
 
-    /* ── ERRORS ── */
+    /* ERRORS */
     .err {
       display: none;
       align-items: center;
@@ -499,7 +386,7 @@
       display: flex;
     }
 
-    /* ── SUBMIT ── */
+    /* SUBMIT */
     .submit-btn {
       width: 100%;
       margin-top: .8rem;
@@ -554,7 +441,7 @@
       display: block;
     }
 
-    /* ── SUCCESS ── */
+    /* SUCCESS */
     #success-screen {
       display: none;
       text-align: center;
@@ -604,7 +491,6 @@
       margin-top: .5rem;
     }
 
-    /* ── ANIMATIONS ── */
     @keyframes slideDown {
       from {
         opacity: 0;
@@ -635,7 +521,6 @@
       }
     }
 
-    /* ── FOOTER ── */
     footer {
       margin-top: 1.8rem;
       font-size: .7rem;
@@ -644,11 +529,6 @@
       text-align: center;
     }
 
-    /* ════════════════════════════
-   RESPONSIVE
-════════════════════════════ */
-
-    /* Tablet portrait → single col */
     @media(max-width:680px) {
       .form-grid {
         grid-template-columns: 1fr;
@@ -667,7 +547,6 @@
       }
     }
 
-    /* Phone */
     @media(max-width:420px) {
       .glass-card {
         padding: 1.4rem 1rem;
@@ -677,17 +556,12 @@
         font-size: 1.7rem;
       }
 
-      .tiles .tile {
-        padding: .6rem .8rem;
-      }
-
       .pills .pill {
-        padding: .6rem .6rem;
+        padding: .65rem .6rem;
         font-size: .78rem;
       }
     }
 
-    /* Landscape phone / small tablet landscape → 2-col compact */
     @media(max-height:500px) and (orientation:landscape) {
       .page {
         padding: 1rem .8rem 2rem;
@@ -721,24 +595,13 @@
         margin: .8rem 0 .7rem;
       }
 
-      .field-wrap {
-        margin-bottom: 1rem;
-      }
-
-      .sel-wrap {
-        margin-bottom: 1rem;
-      }
-
-      .radio-group {
-        margin-bottom: 1rem;
-      }
-
+      .field-wrap,
+      .sel-wrap,
       .pills-group {
         margin-bottom: 1rem;
       }
     }
 
-    /* Wide tablet / desktop → show header logo inline */
     @media(min-width:681px) {
       .top-bar {
         flex-direction: row;
@@ -761,7 +624,6 @@
   <canvas id="bg"></canvas>
   <div class="page">
 
-    <!-- HEADER -->
     <div class="top-bar">
       <div class="logo-ring">
         <img id="logo-preview" src="logo.jpeg" alt="Logo">
@@ -773,20 +635,17 @@
       </div>
     </div>
 
-    <!-- FORM -->
     <div class="glass-card" id="main-form">
       <div class="sec full"><span>Informations personnelles</span></div>
 
       <div class="form-grid">
 
-        <!-- Nom -->
         <div class="field-wrap">
           <input type="text" id="nom" placeholder=" " autocomplete="name">
           <label>Nom et prénom <span class="req-star">✦</span></label>
           <div class="bar"></div>
         </div>
 
-        <!-- WhatsApp -->
         <div class="field-wrap">
           <input type="tel" id="whatsapp" placeholder=" " autocomplete="tel">
           <label>Numéro WhatsApp <span class="req-star">✦</span></label>
@@ -796,14 +655,12 @@
         <div class="err full" id="err-nom">⚠ Nom et prénom obligatoire.</div>
         <div class="err full" id="err-wa" style="margin-top:-.5rem">⚠ Numéro WhatsApp obligatoire.</div>
 
-        <!-- Contact (optionnel) -->
         <div class="field-wrap">
           <input type="tel" id="contact" placeholder=" " autocomplete="tel">
           <label>Numéro de contact <span style="font-size:.65rem;color:var(--muted)">(optionnel)</span></label>
           <div class="bar"></div>
         </div>
 
-        <!-- Profession -->
         <div class="sel-wrap">
           <span class="sel-lbl">Profession <span class="req-star">✦</span></span>
           <select id="profession">
@@ -818,34 +675,19 @@
         <div class="err full" id="err-prof" style="margin-top:-.8rem;margin-bottom:.8rem">⚠ Veuillez choisir votre
           profession.</div>
 
-        <!-- Formation (radio — choix unique) -->
-        <div class="radio-group full">
-          <span class="radio-lbl">Formation choisie <span class="req-star">✦</span></span>
-          <div class="tiles" id="formation-group">
-            <div class="tile" data-val="Informatique bureautique">
-              <div class="tile-dot">
-                <div class="tile-dot-inner"></div>
-              </div>
-              <span class="tile-text">Informatique bureautique</span>
-            </div>
-            <div class="tile" data-val="Excel Professionnel : Appliqué à la Gestion d'Entreprise">
-              <div class="tile-dot">
-                <div class="tile-dot-inner"></div>
-              </div>
-              <span class="tile-text">Excel Professionnel : Appliqué à la Gestion d'Entreprise</span>
-            </div>
-            <div class="tile" data-val="Élaboration de Business Plan avec Excel">
-              <div class="tile-dot">
-                <div class="tile-dot-inner"></div>
-              </div>
-              <span class="tile-text">Élaboration de Business Plan avec Excel</span>
-            </div>
-          </div>
+        <div class="sel-wrap full">
+          <span class="sel-lbl">Formation choisie <span class="req-star">✦</span></span>
+          <select id="formation-select">
+            <option value="">— Sélectionner une formation —</option>
+            <option value="Informatique bureautique">Informatique bureautique</option>
+            <option value="Excel Professionnel : Appliqué à la Gestion d'Entreprise">Excel Professionnel : Appliqué à la
+              Gestion d'Entreprise</option>
+            <option value="Élaboration de Business Plan avec Excel">Élaboration de Business Plan avec Excel</option>
+          </select>
         </div>
         <div class="err full" id="err-formation" style="margin-top:-.8rem;margin-bottom:.8rem">⚠ Veuillez sélectionner
           une formation.</div>
 
-        <!-- Heure -->
         <div class="pills-group">
           <span class="pills-lbl">Heure souhaitée <span class="req-star">✦</span></span>
           <div class="pills" id="heure-group">
@@ -858,7 +700,6 @@
           </div>
         </div>
 
-        <!-- Ordinateur -->
         <div class="pills-group">
           <span class="pills-lbl">Avez-vous un ordinateur ? <span class="req-star">✦</span></span>
           <div class="pills" id="ordi-group">
@@ -876,7 +717,6 @@
         <div class="err full" id="err-ordi" style="margin-top:-.8rem;margin-bottom:.8rem">⚠ Veuillez répondre à cette
           question.</div>
 
-        <!-- Commentaire -->
         <div class="sec full"><span>Commentaire</span></div>
         <div class="field-wrap full">
           <textarea id="commentaire" placeholder=" " rows="3"></textarea>
@@ -885,7 +725,6 @@
           <div class="bar"></div>
         </div>
 
-        <!-- Submit -->
         <div class="full">
           <button class="submit-btn" id="submit-btn">
             <span class="btn-lbl">Envoyer ma candidature</span>
@@ -893,8 +732,8 @@
           </button>
         </div>
 
-      </div><!-- /form-grid -->
-    </div><!-- /glass-card -->
+      </div>
+    </div>
 
     <!-- SUCCESS -->
     <div class="glass-card" id="success-screen">
@@ -909,15 +748,9 @@
       </p>
       <p style="margin-top:.8rem;color:var(--muted);font-size:.85rem">Cliquez ci-dessous pour nous contacter directement
         sur WhatsApp :</p>
-      <a id="wa-link" href="#" target="_blank" style="
-        display:inline-flex;align-items:center;gap:.6rem;
-        margin-top:1.2rem;padding:.8rem 1.6rem;
-        background:linear-gradient(135deg,#25D366,#128C7E);
-        border-radius:30px;color:#fff;font-family:'Jost',sans-serif;
-        font-size:.92rem;font-weight:500;letter-spacing:.04em;
-        text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.3);
-        transition:transform .2s,box-shadow .2s;
-      " onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(37,211,102,.45)'"
+      <a id="wa-link" href="#" target="_blank"
+        style="display:inline-flex;align-items:center;gap:.6rem;margin-top:1.2rem;padding:.8rem 1.6rem;background:linear-gradient(135deg,#25D366,#128C7E);border-radius:30px;color:#fff;font-family:'Jost',sans-serif;font-size:.92rem;font-weight:500;letter-spacing:.04em;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.3);transition:transform .2s,box-shadow .2s;"
+        onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(37,211,102,.45)'"
         onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(37,211,102,.3)'">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
           <path
@@ -928,89 +761,94 @@
         Contacter sur WhatsApp
       </a>
     </div>
+
     <footer>© 2026 ComFormation &nbsp;·&nbsp; km.comformation@gmail.com</footer>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
     /* ════ CANVAS BG ════ */
     (function () {
-      const cv = document.getElementById('bg'), ctx = cv.getContext('2d');
-      let W, H, pts = [], orbs = [];
-      const PC = ['rgba(201,168,76,', 'rgba(180,120,60,', 'rgba(240,210,120,', 'rgba(100,80,160,', 'rgba(60,40,120,'];
+      var cv = document.getElementById('bg'), ctx = cv.getContext('2d');
+      var W, H, pts = [], orbs = [];
+      var PC = ['rgba(201,168,76,', 'rgba(180,120,60,', 'rgba(240,210,120,', 'rgba(100,80,160,', 'rgba(60,40,120,'];
 
-      class P {
-        constructor(init) { this.reset(init); }
-        reset(init) {
+      function P(init) {
+        this.reset = function (init) {
           this.x = Math.random() * W; this.y = init ? Math.random() * H : H + 10;
           this.r = Math.random() * 2 + .3; this.a = Math.random() * .45 + .08;
           this.vx = (Math.random() - .5) * .3; this.vy = -(Math.random() * .45 + .08);
           this.c = PC[Math.floor(Math.random() * PC.length)]; this.s = Math.random() * 100;
-        }
-        tick() {
+        };
+        this.tick = function () {
           this.x += this.vx + Math.sin(Date.now() * .0006 + this.s) * .25;
           this.y += this.vy; if (this.y < -8) this.reset(false);
-        }
-        draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); ctx.fillStyle = this.c + this.a + ')'; ctx.fill(); }
+        };
+        this.draw = function () { ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); ctx.fillStyle = this.c + this.a + ')'; ctx.fill(); };
+        this.reset(init);
       }
-      class O {
-        constructor(x, y, c) { this.ox = x; this.oy = y; this.c = c; this.t = Math.random() * 100; this.sp = Math.random() * .003 + .001; this.rx = Math.random() * 180 + 90; this.ry = Math.random() * 130 + 70; }
-        tick() { this.t += this.sp; this.x = this.ox + Math.cos(this.t) * this.rx; this.y = this.oy + Math.sin(this.t * 1.3) * this.ry; }
-        draw() {
-          const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, 240);
+
+      function O(x, y, c) {
+        this.ox = x; this.oy = y; this.c = c;
+        this.t = Math.random() * 100; this.sp = Math.random() * .003 + .001;
+        this.rx = Math.random() * 180 + 90; this.ry = Math.random() * 130 + 70;
+        this.tick = function () { this.t += this.sp; this.x = this.ox + Math.cos(this.t) * this.rx; this.y = this.oy + Math.sin(this.t * 1.3) * this.ry; };
+        this.draw = function () {
+          var g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, 240);
           g.addColorStop(0, this.c.replace('X', '.16')); g.addColorStop(1, this.c.replace('X', '0'));
           ctx.beginPath(); ctx.arc(this.x, this.y, 240, 0, Math.PI * 2); ctx.fillStyle = g; ctx.fill();
-        }
+        };
       }
+
       function init() {
         W = cv.width = window.innerWidth; H = cv.height = window.innerHeight;
-        pts = Array.from({ length: 110 }, (_, i) => new P(true));
+        pts = []; for (var i = 0; i < 110; i++) pts.push(new P(true));
         orbs = [new O(W * .2, H * .3, 'rgba(107,33,168,X)'), new O(W * .8, H * .2, 'rgba(201,168,76,X)'), new O(W * .5, H * .7, 'rgba(60,40,120,X)'), new O(W * .1, H * .8, 'rgba(150,100,50,X)')];
       }
+
       function loop() {
         ctx.clearRect(0, 0, W, H);
-        const bg = ctx.createLinearGradient(0, 0, W, H);
+        var bg = ctx.createLinearGradient(0, 0, W, H);
         bg.addColorStop(0, '#0D0B14'); bg.addColorStop(.5, '#110D1E'); bg.addColorStop(1, '#0A0812');
         ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
-        orbs.forEach(o => { o.tick(); o.draw(); });
-        pts.forEach(p => { p.tick(); p.draw(); });
+        orbs.forEach(function (o) { o.tick(); o.draw(); });
+        pts.forEach(function (p) { p.tick(); p.draw(); });
         requestAnimationFrame(loop);
       }
       window.addEventListener('resize', init);
       init(); loop();
     })();
 
-
-
-    /* ════ RADIO TILES — choix unique ════ */
-    document.querySelectorAll('#formation-group .tile').forEach(t => {
-      t.addEventListener('click', () => { t.classList.toggle('active'); });
-    });
-
-    /* ════ PILLS — choix unique ════ */
-    document.querySelectorAll('#heure-group .pill').forEach(p => {
-      p.addEventListener('click', () => { p.classList.toggle('active'); });
-    });
-    document.querySelectorAll('#ordi-group .pill').forEach(p => {
-      p.addEventListener('click', () => {
-        document.querySelectorAll('#ordi-group .pill').forEach(x => x.classList.remove('active'));
-        p.classList.add('active');
+    /* ════ PILLS — sélection unique avec couleur visible ════ */
+    function initPills(groupId) {
+      var group = document.getElementById(groupId);
+      var pills = group.querySelectorAll('.pill');
+      pills.forEach(function (pill) {
+        pill.addEventListener('click', function () {
+          pills.forEach(function (p) {
+            p.classList.remove('active');
+          });
+          pill.classList.add('active');
+        });
       });
-    });
+    }
+
+    initPills('heure-group');
+    initPills('ordi-group');
 
     /* ════ VALIDATION ════ */
     function setErr(id, show) {
-      const el = document.getElementById(id);
-      show ? el.classList.add('show') : el.classList.remove('show');
+      var el = document.getElementById(id);
+      if (show) { el.classList.add('show'); } else { el.classList.remove('show'); }
     }
+
     function validate() {
-      let ok = true;
-      const nom = document.getElementById('nom').value.trim();
-      const wa = document.getElementById('whatsapp').value.trim();
-      const prof = document.getElementById('profession').value;
-      const form = document.querySelector('#formation-group .tile.active');
-      const heure = document.querySelector('#heure-group .pill.active');
-      const ordi = document.querySelector('#ordi-group .pill.active');
+      var ok = true;
+      var nom = document.getElementById('nom').value.trim();
+      var wa = document.getElementById('whatsapp').value.trim();
+      var prof = document.getElementById('profession').value;
+      var form = document.getElementById('formation-select').value;
+      var heure = document.querySelector('#heure-group .pill.active');
+      var ordi = document.querySelector('#ordi-group .pill.active');
 
       setErr('err-nom', !nom); if (!nom) ok = false;
       setErr('err-wa', !wa); if (!wa) ok = false;
@@ -1022,41 +860,42 @@
     }
 
     /* ════ SUBMIT → Google Sheets ════ */
-    // ⚠️ Remplacez cette URL par l'URL de votre Apps Script déployé
-    const SHEET_URL = 'https://script.google.com/macros/s/AKfycbz-8aretTeTTyRB6y1A9BS9zWG4BjbpM7l20apvLG2QlcRbu251OmEWe4VAayb0MDYjtw/exec';
+    var SHEET_URL = 'https://script.google.com/macros/s/AKfycbz-8aretTeTTyRB6y1A9BS9zWG4BjbpM7l20apvLG2QlcRbu251OmEWe4VAayb0MDYjtw/exec';
 
-    document.getElementById('submit-btn').addEventListener('click', async () => {
+    document.getElementById('submit-btn').addEventListener('click', async function () {
       if (!validate()) {
-        const first = document.querySelector('.err.show');
+        var first = document.querySelector('.err.show');
         if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
-      const btn = document.getElementById('submit-btn');
+      var btn = document.getElementById('submit-btn');
       btn.classList.add('loading'); btn.disabled = true;
 
-      const payload = {
+      var heureEl = document.querySelector('#heure-group .pill.active');
+      var ordiEl = document.querySelector('#ordi-group .pill.active');
+
+      var payload = {
         timestamp: new Date().toLocaleString('fr-FR'),
         nom: document.getElementById('nom').value.trim(),
         whatsapp: document.getElementById('whatsapp').value.trim(),
         contact: document.getElementById('contact').value.trim(),
         profession: document.getElementById('profession').value,
-        formation: [...document.querySelectorAll('#formation-group .tile.active')].map(t => t.dataset.val).join(' | '),
-        heure: [...document.querySelectorAll('#heure-group .pill.active')].map(p => p.dataset.val).join(' | '),
-        ordinateur: document.querySelector('#ordi-group .pill.active')?.dataset.val || '',
+        formation: document.getElementById('formation-select').value,
+        heure: heureEl ? heureEl.dataset.val : '',
+        ordinateur: ordiEl ? ordiEl.dataset.val : '',
         commentaire: document.getElementById('commentaire').value.trim()
       };
 
       try {
         await fetch(SHEET_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
       } catch (e) { }
+
       document.getElementById('main-form').style.display = 'none';
-      const nom = payload.nom.split(' ')[0];
-      document.getElementById('sname').textContent = nom;
-      const msg = encodeURIComponent('Bonjour, je suis ' + payload.nom + ', je viens de m\'inscrire sur votre formation : ' + payload.formation + '.');
+      var prenom = payload.nom.split(' ')[0];
+      document.getElementById('sname').textContent = prenom;
+      var msg = encodeURIComponent('Bonjour, je suis ' + payload.nom + ', je viens de m\'inscrire sur votre formation : ' + payload.formation + '.');
       document.getElementById('wa-link').href = 'https://wa.me/2694096958?text=' + msg;
-      const s = document.getElementById('success-screen');
-      s.classList.add('show');
-      s.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      document.getElementById('success-screen').classList.add('show');
     });
   </script>
 </body>
